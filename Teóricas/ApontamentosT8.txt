@@ -1,0 +1,44 @@
+------------------- XSLT --------------------
+
+EXERCICIO 3 (Exercício tipo teste)
+
+
+<xsl: template match "Livros">
+	<topPrices>
+		<xsl: apply-templates select = "livro"/>
+	<topPrices>
+</xsl: template>
+
+<xsl: template match "Livro">
+	<book isbn = "{@isbn}">
+		<Title><xsl: value-of select ="@titulo"></Title>
+		<bestPrice store = "{preco[.=min(../preco)]/@livraria}"
+			<xsl value-of select = "min(preco)"/>
+		</bestPrice>
+	</book>
+</xsl template>
+
+
+EXERCICIO 6
+
+<xsl:stylesheet version="1.0">
+
+	<xsl: output method="html" />
+	<xsl: template match "catalogo">
+	<html>
+		<body>
+			<table border="1">
+			<tr>
+				<th> Artista</th>
+				<th> Capa do Álbum </th>
+				<xsl:apply-template = "cd"/>
+			</tr>
+		</body>
+	</html>
+	<xsl template match = "cd">
+		<tr>
+			<td><xsl value-of select = "artista"/></td>
+			<td><img src = "{concat(artista,"jpg")}"/> </td>
+		</tr>
+	</xsl: template>
+</xsl:stylesheet>

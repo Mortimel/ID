@@ -1,0 +1,16 @@
+Expressões Regulares:
+
+-Literais
+
+-Caracteres Especiais:
+
+	-Âncoras:
+		^ Início da linha
+		§ Fim da linha
+		\b início ou fim de linha
+
+	-Representantes:
+		. Qualquer caracter excepto \n
+		[...] Lista de caracteres permitidos
+		[^...] Lista de caracteres não permitidos		
+		

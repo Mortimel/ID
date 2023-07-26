@@ -1,0 +1,32 @@
+1) Nomes(elemento nome) dos vendedores do tipo "vip":
+	
+--> /imobiliaria/vendedores/pessoa[@classe = "vip"]/nome
+
+2)Localidades(texto) onde vivem os vendedores com o apelido Martins
+
+--> //vendedores[contains(nome,"martins")]/localidade/text()
+
+3)Qual a média das idades dos vendedores que vivem em coimbra
+
+--> avg(//pessoa[localidade="Coimbra"]/idade)
+
+4) Primeiro vendedor(elemento) registado no ficheiro com dois contactos telefonicos
+
+--> //pessoa[count(contacto) = 2][1]
+
+5)Atributo tipologia dos imoveis com mais de 100 m2 de area e situados em qualquer zona de 
+aveiro
+
+--> //imovel[contains(localizaçao,"Aveiro") and area > 100]/@tipologia
+
+6)Qual a tipologia do apartamento com a menor area?
+
+--> //imovel[@tipo = "apt" and area=min(//area)]/@tipologia 
+
+OU (MAIS CORRETO)
+
+--> //imovel[@tipo = "apt" and area = min(//imovel[@tipo = "apt"]/area)]/@tipologia
+
+7)Numero de imoveis com mais do que dois extra
+
+--> count(//imovel[count(extras/extra) > 2])

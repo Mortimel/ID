@@ -1,0 +1,66 @@
+1) Área e localização de todos os imovéis > 100 000
+
+sem eixos:
+//imovel[preco < 100000]/localizacao|//imovel[preco < 100000]/area
+
+com eixos:
+//imovel[preco<100000]/preco/preceding-sibling::*
+
+
+2) Os 3 imóveis anteriores do ultimo
+
+com eixos:
+//imovel[last()]/preceding-sibling::imovel[positon()<= 3]
+
+
+3) Localidades, contactos e nomes de vendedores com idade < 30
+
+com eixos:
+//pessoa[idade < 30]/idade/preceding-sibling::*
+
+
+_______________________________________________________________
+
+
+Convidados DTD
+
+<!ELEMENT convidados(familia+ , amigos+)>
+<!ELEMENT familia(nome, telefone+, parentesco)>
+<!ELEMENT amigos(nome, telefone+)+>
+<!ELEMENT nome (#PCDATA)>
+<!ELEMENT telefone (#PCDATA)>
+<!ELEMENT parentesco (#PCDATA)>
+
+exemplo 7
+
+<!ELEMENT ISEC(Departamentos, serviços)>
+<!ELEMENT departamentos(nomeDept, pessoas)>
+<!ELEMENT pessoas(nome, email?)+>
+<!ELEMENT servicos(nomeServ,pessoas)+>
+<!ELEMENT nome (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT nomeDept (#PCDATA)><!ELEMENT nomeServ (#PCDATA)>
+
+<!ATTLIST departamentos data CDATA #REQUIRED>
+<!ATTLIST servicos data CDATA #REQUIRED>
+<!ATTLIST pessoas tipo (docente|funcionario......)>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

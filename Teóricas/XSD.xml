@@ -1,0 +1,67 @@
+EN 17/18
+
+TIPO DE DADOS = Criar um tipo no complex/simple type
+
+3a
+
+<xsd:element name = "livraria">
+	<xsd:Complex-type type = "LivrosNU">
+		<xsd:sequence>
+			<xsd:element ref = "cenas" minOccurs = "0"/>
+			<xsd:element ref = "cenas2" minOccurs = "unbounded"/>
+		</xsd:sequence>
+	</xsd:Complex-type>
+</xsd:element>
+
+3b
+
+<xsd:element name = "novos" type = "LivrosNU"/>
+<xsd:element name = "usados" type ="LivrosNU">
+
+3c
+
+<xsd:attribute name ="filial">
+	<xsd:simpletype>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value = "Lisboa"/>
+			<xsd:enumeration value = "Coimbra"/>
+			<xsd:enumeration value = "Porto"/>
+		</xsd:restriction>
+	<xsd:simpletype>
+<xsd:attribute>
+
+3d
+
+<xsd:element name = "aut">
+	<xsd:Complex-type>
+		<xsd:attribute ref = "id" use= "requiered"/>
+	<xsd:Complex-type>
+</xsd:element>
+
+
+ER 17/18
+
+4   a) A,B,C,H
+	b) C,D,H,A,B
+	
+c)
+	<xsd:element name ="avaliacao">
+		<xsd:simpletype>
+			<xsd:restriction base="xsd:integer">
+				<xsd:minInclusive = "0"/>
+				<xsd:naxInclusive = "20"/>
+			</xsd:restriction>
+		</xsd:simpletype>
+	</xsd:element>
+
+d)
+	<xsd:complextype type = "Trabalho">
+		<xsd:sequence>
+			<xsd:element name = "nome" type = "xsd:string"/>
+			<xsd:element name = "contacto" type = "xsd:string" maxOccurs = "5"/>
+		</xsd:sequence>
+	</xsd:complextype>
+	
+e)
+	<xsd:element name = "docente" type ="cenas"/>
+	<xsd:element name = "professor" type ="cenas"/>

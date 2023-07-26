@@ -1,0 +1,34 @@
+--------------- XSD --------------------
+
+
+XSD EXERCICIO 1
+
+---> Para SimpleTypes (Dados Simples)
+
+---> Não fiz o dos ComplexTypes (Dados Complexos)
+
+<xsd:schema ...>
+	<xsd:element name = "nome" type = "xsd:string" />
+	<xsd:element name = "preco" type = "xsd:decimal" />
+
+	<xsd:attribute nome = "id" type = "xsd:ID" />
+	<xsd:attribute nome = "registo" type = "xsd:....." />
+	<xsd:attribute nome = "valor" type = "xsd:decimal" />
+
+	<xsd:element nome = "localização">
+		<xsd:SimpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="EXPRESSAO REGULAR">
+			</xsd:restriction>
+		</xsd:SingleType>
+	</xsd:element>
+
+	<xsd:attribute name = "tipo">	
+		<xsd:SimpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value = "Software">
+				<xsd:enumeration value = "Hardware">
+			</xsd:restriction>
+		</xsd:SingleType>
+	</xsd:element>
+</xsd:schema>

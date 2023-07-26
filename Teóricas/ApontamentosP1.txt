@@ -1,0 +1,11 @@
+Entrada/saída de dados
+
+-Consola:
+
+	-System.out.println
+	-Scanner
+
+-Ficheiros:
+
+	-BufferedWriter
+	-FileInputStream

@@ -1,0 +1,45 @@
+FREQ 2 17/18
+
+PERGUNTA 3
+
+<listagem>{
+	for $x in doc("escola1.xml")//registo
+	order by $x/responsavel
+	return 
+	<responsavel id = "{$x/responsavel/@id}"> 
+		<nome>{$x/responsavel/text()} </nome>
+		<num_alunos>{count($x/alunos/aluno)}</num_alunos>
+	</responsavel>
+		}
+</listagem>
+
+PERGUNTA 4
+
+declare namespace xsd = "http://www.w3.org/2001/XMLSchema";
+declare function local:divida($id as xsd:string?) as xsd:double?
+{
+ let $valor := sum(doc(“escola2.xml")//aluno[@id_resp=$id and @pago="não"]/@valor)
+ return $valor
+};
+ <html>
+	<body>
+		<h2>Valores em dívida</h2>
+		<table border="1">
+		<tr>
+			<th>Responsavel</th>
+			<th>Valor</th>
+		</tr>
+ {
+ for $r in doc("escola1.xml")//registo
+ let $v := local:divida($r/responsavel/@id)
+order by $r/responsavel
+return 
+	<tr>
+		<td>{$r/responsavel/text()}</td>
+		<td>{$v}</td>
+	</tr>}
+
+		</table>
+	</body>
+</html>
+
